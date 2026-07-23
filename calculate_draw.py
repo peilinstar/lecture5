@@ -116,40 +116,32 @@ print(table)
 
 
 # 绘图
+time = np.arange(5, 55, 5)
+time_predict=np.arange(10,60,5)
 
-n=np.arange(1,11)
+plt.figure(figsize=(10,6))
 
-plt.figure(figsize=(8,5))
+plt.plot(time, real, '-D', linewidth=2, markersize=6, label='True values')
 
-plt.plot(
-    n,
-    real,
-    marker='o',
-    label="True distance"
-)
+plt.plot(time, z, '-s', linewidth=2, markersize=6, label='Measurements')
 
+plt.plot(time, x_est, '-o', linewidth=2, markersize=6, label='Estimates')
 
-plt.plot(
-    n,
-    z,
-    marker='x',
-    label="Radar measurement"
-)
+plt.plot(time_predict, x_predict_est, '-^', linewidth=2, markersize=6, color='gray', label='Prediction')
 
+plt.title("Range vs. Time",
+          fontsize=18,
+          color='darkred',
+          fontweight='bold')
 
-plt.plot(
-    n,
-    x_est,
-    marker='s',
-    label="Alpha-Beta estimation"
-)
+plt.xlabel("Time (s)", fontsize=12)
 
+plt.ylabel("Range (m)", fontsize=12)
 
-plt.xlabel("Time step")
-plt.ylabel("Distance")
+plt.grid(True, linestyle='--', alpha=0.4)
 
 plt.legend()
 
-plt.grid()
+plt.tight_layout()
 
 plt.show()
