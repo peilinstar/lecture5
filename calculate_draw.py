@@ -35,7 +35,7 @@ real=np.array([
 dt=5
 
 # alpha beta参数
-alpha=0.60
+alpha=0.1
 beta=0.005
 
 
